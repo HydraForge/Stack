@@ -1,9 +1,19 @@
-import { intro, select } from '@clack/prompts';
+import { renderTitle } from './src/utils';
+import {intro, select} from "@clack/prompts";
+import chalk from "chalk";
+import { text } from '@clack/prompts';
 
 
+intro(chalk.bgBlue('create-hydrastack-app'))
+renderTitle();
 
-intro(`Stack`);
+async function getProjectName() {
+    const projectName = await text({
+        message: 'What is the name of your project?',
+    });
+}
 
+await getProjectName();
 
 async function getProjectType() {
     const projectType = await select({
