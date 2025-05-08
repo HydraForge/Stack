@@ -9,7 +9,7 @@ async function renderTitle(): Promise<void> {
 		width: 45,
 		whitespaceBreak: true,
 	});
-	console.log(gradient(['cyan', 'green'])(title));
+	console.log(gradient(["cyan", "green"])(title));
 }
 
 export { renderTitle };

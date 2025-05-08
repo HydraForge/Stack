@@ -7,8 +7,7 @@ export interface ProjectConfig {
 }
 
 export async function postInstall(config: ProjectConfig): Promise<void> {
-	const { projectName, projectPath } =
-		config;
+	const { projectName, projectPath } = config;
 
 	// Add custom README
 	const data = `# ${projectName} Created with HydraStack CLI`;

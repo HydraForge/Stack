@@ -4,7 +4,8 @@ import path from "node:path";
 import * as p from "@clack/prompts";
 import boxen from "boxen";
 import chalk from "chalk";
-import { installTanStackRouter } from "~/installers/TanStackRouter.ts";
+import { installBiome } from "~/installers/biome.ts";
+import { installTanStackRouter } from "~/installers/tanstackrouter.ts";
 import { postInstall } from "~/utils/postInstall.ts";
 import { renderTitle } from "~/utils/utils.ts";
 
@@ -52,6 +53,7 @@ try {
 
 	if (projectType === "client") {
 		await installTanStackRouter({ projectPath });
+		await installBiome({ projectPath });
 	}
 
 	await postInstall({
