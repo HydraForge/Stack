@@ -3,14 +3,14 @@
 	"module": "src/index.ts",
 	"type": "module",
 	"private": true,
-    "bin": {
-      "create-hydrastack-app": "./dist/index.js"
-    },
+	"bin": {
+		"create-hydrastack-app": "./dist/index.js"
+	},
 	"scripts": {
-        "build": "bun build ./src/index.ts --target=bun --outdir=dist",
-		"lint": "bunx biome format --write .",
-		"format": "bunx biome lint --write .",
-		"check": "bunx biome check --write ."
+		"build": "bun build ./src/index.ts --target=bun --outdir=dist",
+		"lint": "bunx biome format --write ./src/*",
+		"format": "bunx biome lint --write ./src/*",
+		"check": "bunx biome check --write ./src/*"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
@@ -22,6 +22,7 @@
 	"dependencies": {
 		"@clack/prompts": "^0.10.1",
 		"@types/figlet": "^1.7.0",
+		"boxen": "^8.0.1",
 		"chalk": "^5.4.1",
 		"figlet": "^1.8.1",
 		"gradient-string": "^3.0.0"

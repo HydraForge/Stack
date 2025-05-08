@@ -1,7 +1,7 @@
 import figlet from "figlet";
-import { rainbow } from "gradient-string";
+import gradient, { rainbow } from "gradient-string";
 
-async function renderTitle() {
+async function renderTitle(): Promise<void> {
 	const title = figlet.textSync("HYDRASTACK", {
 		font: "ANSI Shadow",
 		horizontalLayout: "default",
@@ -9,7 +9,7 @@ async function renderTitle() {
 		width: 45,
 		whitespaceBreak: true,
 	});
-	console.log(rainbow.multiline(title));
+	console.log(gradient(['cyan', 'green'])(title));
 }
 
 export { renderTitle };
