@@ -5,6 +5,7 @@ import * as p from "@clack/prompts";
 import boxen from "boxen";
 import chalk from "chalk";
 import { installBiome } from "~/installers/biome.ts";
+import { installInterFont } from "~/installers/inter.ts";
 import { installTanStackRouter } from "~/installers/tanstackrouter.ts";
 import { postInstall } from "~/utils/postInstall.ts";
 import { renderTitle } from "~/utils/utils.ts";
@@ -54,6 +55,7 @@ try {
 	if (projectType === "client") {
 		await installTanStackRouter({ projectPath });
 		await installBiome({ projectPath });
+		await installInterFont({ projectPath });
 	}
 
 	await postInstall({
@@ -73,7 +75,7 @@ try {
     ${chalk.yellow("bun run dev")}
     
     Create something amazing! 🚀`,
-			{ title: "HydraStack CLI", titleAlignment: "center" },
+			{ title: "HydraForge CLI", titleAlignment: "center" },
 		),
 	);
 } catch (error) {

@@ -24,6 +24,7 @@
 		"@types/figlet": "^1.7.0",
 		"boxen": "^8.0.1",
 		"chalk": "^5.4.1",
+		"dedent": "^1.6.0",
 		"figlet": "^1.8.1",
 		"gradient-string": "^3.0.0"
 	}
