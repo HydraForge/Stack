@@ -1,5 +1,7 @@
 import path from "node:path";
 import dedent from "dedent";
+import { mainComponent } from "~/templates/mainComponent.ts";
+import { styles } from "~/templates/styles.ts";
 
 export interface ProjectConfig {
 	projectName: string;
@@ -15,6 +17,13 @@ export async function postInstall(config: ProjectConfig): Promise<void> {
   # ${projectName}
 
   This project was bootstrapped using **[HydraStack CLI](https://github.com/HydraForge/Stack)**.
+  
+  ## 🛠️ Features
+
+  - ⚡ Fast startup with Bun
+  - ✨ Modern tooling preconfigured
+  - 📦 Modular file structure
+  - 🧪 Ready for testing and deployment
 
   ## 🚀 Getting Started
 
@@ -23,26 +32,38 @@ export async function postInstall(config: ProjectConfig): Promise<void> {
   \`\`\`bash
   bun dev
   \`\`\`
+  
+  # 🧹 Linting
+  Ensure your code meets formatting and quality standards.
 
-  ## 🛠️ Features
-
-  - ⚡ Fast startup with Bun
-  - ✨ Modern tooling preconfigured
-  - 📦 Modular file structure
-  - 🧪 Ready for testing and deployment
+  ### Run lint check
+  \`\`\`bash
+  bun check
+  \`\`\`
   
   ---
   > Generated with ❤️ by [HydraStack CLI](https://github.com/HydraForge/Stack)
 `);
 	await Bun.write(path.join(projectPath, "README.md"), data);
 
-	// Add .env and .env.example
+	// Add .env.example and .env
 	const envData = dedent(`
-	APP_NAME=
-	VITE_APP_NAME=\${APP_NAME}
+	VITE_APP_NAME=
+	
+	# PostHog Analytics
+	VITE_PUBLIC_POSTHOG_KEY=
+	VITE_PUBLIC_POSTHOG_HOST=
 	`);
-	await Bun.write(path.join(projectPath, ".env"), envData);
 	await Bun.write(path.join(projectPath, ".env.example"), envData);
+	await Bun.write(path.join(projectPath, ".env"), envData);
+
+	// Add customized styles.ts
+	const CSSFilePath = path.join(projectPath, "src", "styles.css");
+	await Bun.write(CSSFilePath, styles);
+
+	// Add customized main.tsx
+	const mainComponentPath = path.join(projectPath, "src", "main.tsx");
+	await Bun.write(mainComponentPath, mainComponent);
 
 	return Promise.resolve();
 }

@@ -1,41 +1,11 @@
-@import "tailwindcss";
+export const styles = `@import "tailwindcss";
 
 @plugin "tailwindcss-animate";
 
 @custom-variant dark (&:is(.dark *));
 
 /* Inter Font */
-@font-face {
-	font-family: "Inter";
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-	src: url("/fonts/inter/Inter-Regular.woff2") format("woff2");
-}
-
-@font-face {
-	font-family: "Inter";
-	font-weight: 500;
-	font-style: normal;
-	font-display: swap;
-	src: url("/fonts/inter/Inter-Medium.woff2") format("woff2");
-}
-
-@font-face {
-	font-family: "Inter";
-	font-weight: 600;
-	font-style: normal;
-	font-display: swap;
-	src: url("/fonts/inter/Inter-SemiBold.woff2") format("woff2");
-}
-
-@font-face {
-	font-family: "Inter";
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
-	src: url("/fonts/inter/Inter-Bold.woff2") format("woff2");
-}
+@import "../public/fonts/inter.css";
 
 body {
 	@apply m-0;
@@ -169,3 +139,4 @@ code {
 		@apply bg-background text-foreground;
 	}
 }
+`;

@@ -13,13 +13,5 @@ async function installInterFont(config: interOptions): Promise<void> {
 
 	// Copy templates/fonts to public/fonts
 	fs.cpSync(source, destination, { recursive: true });
-
-	// Customized styles.css
-	const CSSFilePath = path.join(projectPath, "src", "styles.css");
-	const CSSTemplatePath = path.join(__dirname, "../templates/styles.css");
-
-	const CSSContents = await Bun.file(CSSTemplatePath).text();
-
-	await Bun.write(CSSFilePath, CSSContents);
 }
 export { installInterFont };
