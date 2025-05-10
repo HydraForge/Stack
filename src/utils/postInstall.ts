@@ -57,7 +57,8 @@ export async function postInstall(config: ProjectConfig): Promise<void> {
 	`);
 	await Bun.write(path.join(projectPath, ".env.example"), envData);
 
-	await Bun.write(path.join(projectPath, ".env"), envData);
+	await
+		Bun.write(path.join(projectPath, ".env"), envData);
 
 	// Add customized styles.ts
 	const CSSFilePath = path.join(projectPath, "src", "styles.css");
