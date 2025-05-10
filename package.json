@@ -14,7 +14,7 @@
 		"prepare": "bun run build"
 	},
 	"simple-git-hooks": {
-		"pre-commit": "bunx lint-staged"
+		"pre-commit": "echo 'precommit hook ran' && bunx lint-staged"
 	},
 	"lint-staged": {
 		"*.{ts,tsx,js,jsx}": ["bunx biome check --write"]

@@ -56,7 +56,9 @@ export async function postInstall(config: ProjectConfig): Promise<void> {
 	VITE_PUBLIC_POSTHOG_HOST=
 	`);
 	await Bun.write(path.join(projectPath, ".env.example"), envData);
-	await Bun.write(path.join(projectPath, ".env"), envData);
+
+	await
+		Bun.write(path.join(projectPath, ".env"), envData);
 
 	// Add customized styles.ts
 	const CSSFilePath = path.join(projectPath, "src", "styles.css");
