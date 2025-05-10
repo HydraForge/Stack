@@ -1,5 +1,6 @@
 import path from "node:path";
 import dedent from "dedent";
+import { homeComponent } from "~/templates/homeComponent.ts";
 import { mainComponent } from "~/templates/mainComponent.ts";
 import { styles } from "~/templates/styles.ts";
 
@@ -64,6 +65,15 @@ export async function postInstall(config: ProjectConfig): Promise<void> {
 	// Add customized main.tsx
 	const mainComponentPath = path.join(projectPath, "src", "main.tsx");
 	await Bun.write(mainComponentPath, mainComponent);
+
+	// Add customized home page
+	const homeComponentPath = path.join(
+		projectPath,
+		"src",
+		"routes",
+		"index.tsx",
+	);
+	await Bun.write(homeComponentPath, homeComponent);
 
 	return Promise.resolve();
 }

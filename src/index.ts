@@ -87,7 +87,7 @@ try {
     ${chalk.yellow("bun run dev")}
     
     Create something amazing! 🚀`,
-			{ title: "HydraForge CLI", titleAlignment: "center" },
+			{ title: "HydraStack CLI", titleAlignment: "center" },
 		),
 	);
 } catch (error) {

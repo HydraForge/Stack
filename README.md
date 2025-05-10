@@ -6,10 +6,20 @@ To install dependencies:
 bun install
 ```
 
-To run:
+To build:
 
 ```bash
-bun run index.ts
+bun run build
 ```
 
-This project was created using `bun init` in bun v1.2.12. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+Link bin:
+
+```bash
+bun link
+```
+
+Execute `create-hydrastack-app` locally:
+You will need to run `bun link` first
+```bash
+create-hydrastack-app
+```
