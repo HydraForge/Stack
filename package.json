@@ -2,7 +2,7 @@
 	"name": "create-hydrastack-app",
 	"module": "src/index.ts",
 	"type": "module",
-	"private": true,
+	"version": "0.0.1",
 	"bin": {
 		"create-hydrastack-app": "./dist/index.js"
 	},
@@ -17,7 +17,7 @@
 		"pre-commit": "echo 'precommit hook ran' && bunx lint-staged"
 	},
 	"lint-staged": {
-		"*.{ts,tsx,js,jsx}": ["bunx biome check --write"]
+		"**/*.{ts,tsx,js,jsx}": ["bunx biome check --write"]
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
