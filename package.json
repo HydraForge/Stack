@@ -12,6 +12,9 @@
 		"format": "bunx biome lint --write ./src/*",
 		"check": "bunx biome check --write ./src/*"
 	},
+	"simple-git-hooks": {
+		"pre-commit": "bunx lint-staged"
+	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
 		"@types/bun": "latest"
@@ -26,6 +29,8 @@
 		"chalk": "^5.4.1",
 		"dedent": "^1.6.0",
 		"figlet": "^1.8.1",
-		"gradient-string": "^3.0.0"
+		"gradient-string": "^3.0.0",
+		"lint-staged": "^15.5.2",
+		"simple-git-hooks": "^2.13.0"
 	}
 }
