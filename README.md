@@ -1,7 +1,18 @@
-# HydraStack
+# create-hydrastack-app
+
+
+# 🪄 HydraStack
+
+- [TanStack Router](https://tanstack.com/router/latest)
+- [TanStack Query](https://tanstack.com/query/latest)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Shadcn/ui](https://ui.shadcn.com/)
+- [Inter Font](https://github.com/rsms/inter)
+- [Biome](https://biomejs.dev/)
+- [PostHog](https://posthog.com/)
 
 # 🚀 Getting Started
-To quickly scaffold a new Hydrastack app, run one of the following commands and follow the interactive setup:
+To quickly scaffold a new Hydrastack app, run the following commands and follow the interactive setup:
 
 ```bash
 bun create hydrastack-app@latest

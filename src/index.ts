@@ -5,7 +5,6 @@ import * as p from "@clack/prompts";
 import boxen from "boxen";
 import chalk from "chalk";
 import { installBiome } from "~/installers/biome.ts";
-import { installInterFont } from "~/installers/inter.ts";
 import { installPostHog } from "~/installers/posthogInstaller.ts";
 import { installTanStackRouter } from "~/installers/tanstackrouter.ts";
 import { postInstall } from "~/utils/postInstall.ts";
@@ -56,7 +55,6 @@ try {
 	if (projectType === "client") {
 		await installTanStackRouter({ projectPath });
 		await installBiome({ projectPath });
-		await installInterFont({ projectPath });
 		await installPostHog({ projectPath });
 	}
 

@@ -1,5 +1,6 @@
 import path from "node:path";
 import dedent from "dedent";
+import { gitIgnore } from "~/templates/gitIgnore.ts";
 import { homeComponent } from "~/templates/homeComponent.ts";
 import { mainComponent } from "~/templates/mainComponent.ts";
 import { styles } from "~/templates/styles.ts";
@@ -58,6 +59,10 @@ export async function postInstall(config: ProjectConfig): Promise<void> {
 	await Bun.write(path.join(projectPath, ".env.example"), envData);
 
 	await Bun.write(path.join(projectPath, ".env"), envData);
+
+	// Add customized .gitignore
+	const gitIgnorePath = path.join(projectPath, ".gitignore");
+	await Bun.write(gitIgnorePath, gitIgnore);
 
 	// Add customized styles.ts
 	const CSSFilePath = path.join(projectPath, "src", "styles.css");

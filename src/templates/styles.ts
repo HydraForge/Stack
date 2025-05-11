@@ -1,11 +1,11 @@
-export const styles = `@import "tailwindcss";
+export const styles = `/* Inter Font */
+@import url(https://fonts.bunny.net/css?family=inter:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i);
+
+@import "tailwindcss";
 
 @plugin "tailwindcss-animate";
 
 @custom-variant dark (&:is(.dark *));
-
-/* Inter Font */
-@import "../public/fonts/inter.css";
 
 body {
 	@apply m-0;

@@ -2,7 +2,7 @@
 	"name": "create-hydrastack-app",
 	"module": "src/index.ts",
 	"type": "module",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"bin": {
 		"create-hydrastack-app": "./dist/index.js"
 	},
@@ -13,6 +13,7 @@
 		"check": "bunx biome check --write ./src/*",
 		"prepare": "bun run build"
 	},
+	"files": ["dist/", "templates/", "README.md", "LICENSE"],
 	"simple-git-hooks": {
 		"pre-commit": "echo 'precommit hook ran' && bunx lint-staged"
 	},
