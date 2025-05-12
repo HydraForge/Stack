@@ -2,7 +2,7 @@
 	"name": "create-hydrastack-app",
 	"module": "src/index.ts",
 	"type": "module",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"bin": {
 		"create-hydrastack-app": "./dist/index.js"
 	},

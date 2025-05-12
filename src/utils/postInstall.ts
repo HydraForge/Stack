@@ -1,5 +1,6 @@
 import path from "node:path";
 import dedent from "dedent";
+import { indexHTML } from "~/templates";
 import { gitIgnore } from "~/templates/gitIgnore.ts";
 import { homeComponent } from "~/templates/homeComponent.ts";
 import { mainComponent } from "~/templates/mainComponent.ts";
@@ -80,6 +81,10 @@ export async function postInstall(config: ProjectConfig): Promise<void> {
 		"index.tsx",
 	);
 	await Bun.write(homeComponentPath, homeComponent);
+
+	// Add customized index HTML page
+	const indexHTMLPath = path.join(projectPath, "index.html");
+	await Bun.write(indexHTMLPath, indexHTML);
 
 	return Promise.resolve();
 }

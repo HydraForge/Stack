@@ -20,7 +20,7 @@ bun create hydrastack-app@latest
 
 All that is left is to follow the prompts!
 
-# Devlopment
+# Development
 To install dependencies:
 
 ```bash
