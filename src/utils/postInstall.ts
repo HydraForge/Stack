@@ -4,6 +4,7 @@ import { indexHTML } from "~/templates";
 import { gitIgnore } from "~/templates/gitIgnore.ts";
 import { homeComponent } from "~/templates/homeComponent.ts";
 import { mainComponent } from "~/templates/mainComponent.ts";
+import { manifest } from "~/templates/manifest.ts";
 import { styles } from "~/templates/styles.ts";
 
 export interface ProjectConfig {
@@ -85,6 +86,10 @@ export async function postInstall(config: ProjectConfig): Promise<void> {
 	// Add customized index HTML page
 	const indexHTMLPath = path.join(projectPath, "index.html");
 	await Bun.write(indexHTMLPath, indexHTML);
+
+	// Add customized manifest.json
+	const manifestPath = path.join(projectPath, "public", "manifest.json");
+	await Bun.write(manifestPath, manifest);
 
 	return Promise.resolve();
 }
