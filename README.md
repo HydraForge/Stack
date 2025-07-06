@@ -2,9 +2,17 @@
 
 
 # 🪄 HydraStack
+highly opinionated tanstack starters
 
+### Client
 - [TanStack Router](https://tanstack.com/router/latest)
 - [TanStack Query](https://tanstack.com/query/latest)
+
+### Full Stack
+- [TanStack Start](https://tanstack.com/start/latest)
+
+
+### Optional
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Shadcn/ui](https://ui.shadcn.com/)
 - [Inter Font](https://github.com/rsms/inter)
