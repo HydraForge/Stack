@@ -1,9 +1,9 @@
 #!/usr/bin/env bun
 import { existsSync } from "node:fs";
+import { scaffold } from "@/core/scaffold";
+import { renderTitle } from "@/utils/renderTitle";
 import * as p from "@clack/prompts";
 import chalk from "chalk";
-import { scaffold } from "~/core/scaffold";
-import { renderTitle } from "~/utils/renderTitle";
 
 p.intro(chalk.bgBlue("create-hydrastack-app"));
 
@@ -22,13 +22,21 @@ const projectConfig = await p.group(
 			}),
 		projectType: () =>
 			p.select({
-				message: "What type of project do you need?",
+				message: "What starter do you need?",
 				options: [
-					{ value: "client", label: "Client" },
-					{ value: "server", label: "Server" },
-					{ value: "fullstack", label: "FullStack" },
+					{ value: "router", label: "TanStack Router" },
+					{ value: "api", label: "API" },
+					{ value: "start", label: "TanStack Start" },
 				],
 			}),
+		useQuery: ({ results }) => {
+			if (results.projectType === "start" || results.projectType === "router") {
+				return p.confirm({
+					message: "Would you like to include TanStack Query?",
+					initialValue: true,
+				});
+			}
+		},
 	},
 	{
 		onCancel: ({ results }) => {
@@ -38,4 +46,10 @@ const projectConfig = await p.group(
 	},
 );
 
-scaffold(projectConfig);
+scaffold({
+	...projectConfig,
+	useQuery:
+		typeof projectConfig.useQuery === "boolean"
+			? projectConfig.useQuery
+			: undefined,
+});

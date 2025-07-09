@@ -1,19 +1,21 @@
-import path from "node:path";
+import type { ProjectConfig } from "@/types/project";
+import { starters } from "@/utils/starters";
 import * as p from "@clack/prompts";
 import boxen from "boxen";
 import chalk from "chalk";
 
-interface ProjectConfigOptions {
-	projectName: string;
-	projectType: string;
-}
-
-export function scaffold({ projectName, projectType }: ProjectConfigOptions) {
+export function scaffold(options: ProjectConfig) {
+	const { projectName, projectType } = options;
 	const spinner = p.spinner();
-	spinner.start("Creating HydraStack App...");
 
 	try {
-		const projectPath = path.resolve(process.cwd(), projectName);
+		spinner.start("Creating HydraStack App...");
+
+		const starter = starters[projectType];
+		if (!starter) {
+			throw new Error(`Invalid project type: ${projectType}`);
+		}
+		starter(options);
 
 		spinner.stop("App Created Successfully!");
 
@@ -30,8 +32,8 @@ export function scaffold({ projectName, projectType }: ProjectConfigOptions) {
 			),
 		);
 	} catch (error) {
-		spinner.stop(`Failed to create project: ${error}`);
-		console.error(error);
+		const message = error instanceof Error ? error.message : String(error);
+		spinner.stop(`Failed to create project: ${message}`);
 		process.exit(1);
 	}
 }
