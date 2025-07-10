@@ -7,7 +7,6 @@ export const starters: Record<
 > = {
   start: async (config) => {
     const startBasic = "TanStack/router/tree/main/examples/react/start-basic";
-    console.log(`Scaffolding TanStack Start: ${config.projectName}`);
     try {
       await $`bunx gitpick ${startBasic} ${config.projectName}`.quiet();
     } catch (e) {

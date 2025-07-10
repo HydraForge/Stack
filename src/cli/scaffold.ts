@@ -1,24 +1,38 @@
+import { addBiome } from "@/enhancements/biome";
+import { addShadCN } from "@/enhancements/shadcn";
+import { addTailwind } from "@/enhancements/tailwind";
+import { scaffoldBaseProject } from "@/scaffolding/base-project";
 import type { ProjectConfig } from "@/types/project";
-import { starters } from "@/utils/starters";
 import * as p from "@clack/prompts";
 import boxen from "boxen";
 import chalk from "chalk";
 
-export function scaffold(config: ProjectConfig) {
-  const { projectName, projectType, tools } = config;
-  const spinner = p.spinner();
+const enhancementMap = {
+  tailwind: addTailwind,
+  shadcn: addShadCN,
+  biome: addBiome,
+};
 
-  console.log(config);
+export async function scaffold(config: ProjectConfig) {
+  const { projectName, tools } = config;
+  const spinner = p.spinner();
 
   spinner.start("Creating HydraStack App...");
 
   try {
-    const starter = starters[projectType];
-    if (!starter) {
-      throw new Error(`Invalid project type: ${projectType}`);
-    }
+    const pipeline: Array<(config: ProjectConfig) => Promise<void>> = [
+      scaffoldBaseProject,
+    ];
 
-    starter(config);
+    tools?.forEach((tool) => {
+      if (enhancementMap[tool]) {
+        pipeline.push(enhancementMap[tool]);
+      }
+    });
+
+    for (const step of pipeline) {
+      await step(config);
+    }
 
     spinner.stop("App Created Successfully!");
 

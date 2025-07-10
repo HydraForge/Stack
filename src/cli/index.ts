@@ -50,4 +50,4 @@ const projectConfig = await p.group(
   },
 );
 
-scaffold(projectConfig);
+await scaffold(projectConfig);
