@@ -1,25 +1,30 @@
 import type { ProjectConfig, ProjectType } from "@/types/project";
 import { $ } from "bun";
 
-export const starters: Record<ProjectType, (config: ProjectConfig) => void> = {
-	start: async (options) => {
-		const startBasic = "TanStack/router/tree/main/examples/react/start-basic";
-		const startQuery =
-			"TanStack/router/tree/main/examples/react/start-basic-react-query";
-		console.log(`Scaffolding TanStack Start: ${options.projectName}`);
-
-		// const repo =
-
-		try {
-			await $`bunx gitpick ${startBasic} ${options.projectName}`.quiet();
-		} catch (e) {
-			console.error(`Error: ${e}`);
-		}
-	},
-	router: (options) => {
-		console.log(`Scaffolding TanStack Router: ${options.projectName}`);
-	},
-	api: (options) => {
-		console.log(`Scaffolding API: ${options.projectName}`);
-	},
+export const starters: Record<
+  ProjectType,
+  (config: ProjectConfig) => Promise<void>
+> = {
+  start: async (config) => {
+    const startBasic = "TanStack/router/tree/main/examples/react/start-basic";
+    console.log(`Scaffolding TanStack Start: ${config.projectName}`);
+    try {
+      await $`bunx gitpick ${startBasic} ${config.projectName}`.quiet();
+    } catch (e) {
+      console.error(`Error: ${e}`);
+    }
+  },
+  router: async (config) => {
+    const routerFileBased =
+      "Tanstack/router/tree/main/examples/react/basic-file-based";
+    console.log(`Scaffolding TanStack Router: ${config.projectName}`);
+    try {
+      await $`bunx gitpick ${routerFileBased} ${config.projectName}`;
+    } catch (e) {
+      console.error(`Error: ${e}`);
+    }
+  },
+  api: (config) => {
+    console.log(`coming soon.`);
+  },
 };

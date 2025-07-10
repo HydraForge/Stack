@@ -4,20 +4,21 @@ import * as p from "@clack/prompts";
 import boxen from "boxen";
 import chalk from "chalk";
 
-export function scaffold(options: ProjectConfig) {
-  const { projectName, projectType } = options;
+export function scaffold(config: ProjectConfig) {
+  const { projectName, projectType, tools } = config;
   const spinner = p.spinner();
-  console.log(options);
+
+  console.log(config);
+
+  spinner.start("Creating HydraStack App...");
 
   try {
-    spinner.start("Creating HydraStack App...");
-
     const starter = starters[projectType];
     if (!starter) {
       throw new Error(`Invalid project type: ${projectType}`);
     }
 
-    starter(options);
+    starter(config);
 
     spinner.stop("App Created Successfully!");
 

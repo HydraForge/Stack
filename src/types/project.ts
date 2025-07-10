@@ -1,4 +1,4 @@
-export type ProjectType = "router" | "api" | "start";
+export type ProjectType = "start" | "router" | "api";
 
 export interface ProjectConfig {
   projectName: string;
