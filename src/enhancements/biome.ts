@@ -2,7 +2,7 @@ import type { ProjectConfig } from "@/types/project";
 import * as p from "@clack/prompts";
 import { $ } from "bun";
 
-export async function addBiome(config: ProjectConfig): Promise<void> {
+export const addBiome = async (config: ProjectConfig): Promise<void> => {
 	await p.tasks([
 		{
 			title: "Adding Biome",
@@ -11,20 +11,18 @@ export async function addBiome(config: ProjectConfig): Promise<void> {
 					.cwd(config.projectName)
 					.nothrow()
 					.quiet();
-				return "Added Biome!";
 			},
 		},
 		{
 			title: "Creating config file",
 			task: async () => {
 				await $`bunx --bun biome init`.cwd(config.projectName).quiet();
-				return "Config file created!";
 			},
 		},
 		{
-			title: "Tidying up!",
+			title: "Tidying up",
 			task: async () => {
-				const configPath = `${config.projectName}/biome.json`;
+				const configPath = `${config.projectName}/biome.json`; // this probably needs to be fixed for Windows
 				const configContent = await Bun.file(configPath).json();
 
 				configContent.json = {
@@ -36,9 +34,7 @@ export async function addBiome(config: ProjectConfig): Promise<void> {
 				};
 
 				await Bun.write(configPath, JSON.stringify(configContent, null, 2));
-
-				return "Successfully configured Biome!";
 			},
 		},
 	]);
-}
+};
