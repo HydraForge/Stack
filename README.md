@@ -4,12 +4,12 @@
 # 🪄 HydraStack
 highly opinionated tanstack starters
 
-### Client
-- [TanStack Router](https://tanstack.com/router/latest)
-- [TanStack Query](https://tanstack.com/query/latest)
+### Available Starters
+- **TanStack Router** - Client-side routing with [TanStack Router](https://tanstack.com/router/latest)
+- **API** - Backend API starter
+- **TanStack Start** - Full-stack framework with [TanStack Start](https://tanstack.com/start/latest)
 
-### Full Stack
-- [TanStack Start](https://tanstack.com/start/latest)
+All starters can optionally include [TanStack Query](https://tanstack.com/query/latest) for data fetching.
 
 
 ### Optional
