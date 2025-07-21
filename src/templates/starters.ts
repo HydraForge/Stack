@@ -23,7 +23,7 @@ export const starters: Record<
       console.error(`Error: ${e}`);
     }
   },
-  api: (config) => {
+  api: async (config) => {
     console.log(`coming soon.`);
   },
 };
