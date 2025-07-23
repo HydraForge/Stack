@@ -34,7 +34,10 @@ export const addBiome = async (config: ProjectConfig): Promise<void> => {
           },
         };
 
-        await Bun.write(configPath, JSON.stringify(configContent, null, 2));
+        await Bun.write(
+          configPath,
+          JSON.stringify(configContent, null, 2) + "\n",
+        );
       },
     },
   ]);
