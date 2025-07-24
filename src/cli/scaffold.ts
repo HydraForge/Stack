@@ -20,7 +20,7 @@ const enhancementMap = {
   git: addGitIgnore,
 };
 
-export async function scaffold(config: ProjectConfig) {
+export const scaffold = async (config: ProjectConfig): Promise<void> => {
   const { projectName, tools } = config;
   const spinner = p.spinner();
 
@@ -67,4 +67,4 @@ export async function scaffold(config: ProjectConfig) {
     spinner.stop(`Failed to create project: ${message}`);
     process.exit(1);
   }
-}
+};

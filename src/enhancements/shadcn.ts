@@ -6,7 +6,7 @@ import * as p from "@clack/prompts";
 import { $ } from "bun";
 import { join } from "node:path";
 
-export async function addShadCN(config: ProjectConfig): Promise<void> {
+export const addShadCN = async (config: ProjectConfig): Promise<void> => {
   await p.tasks([
     {
       title: "Installing ShadCN dependencies",
@@ -43,4 +43,4 @@ export async function addShadCN(config: ProjectConfig): Promise<void> {
       },
     },
   ]);
-}
+};
