@@ -4,8 +4,8 @@ export const components = {
   rsc: false,
   tsx: true,
   tailwind: {
-    config: "tailwind.config.mjs",
-    css: "src/styles/app.css",
+    config: "",
+    css: "src/styles/globals.css",
     baseColor: "neutral",
     cssVariables: true,
     prefix: "",

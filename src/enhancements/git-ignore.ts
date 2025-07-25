@@ -5,6 +5,7 @@ import { $ } from "bun";
 export const addGitIgnore = async (config: ProjectConfig): Promise<void> => {
   const gitIgnorePath = join(config.projectName, ".gitignore");
   const ignores = `
+node_modules
 .idea
 .vscode
 `;

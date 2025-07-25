@@ -37,6 +37,7 @@ const projectConfig = await p.group(
           { value: "shadcn", label: "shadcn/ui" },
           { value: "biome", label: "Biome", hint: "recommended" },
           { value: "query", label: "TanStack Query" },
+          { value: "inter", label: "Inter Font" },
         ],
         required: false,
       }),

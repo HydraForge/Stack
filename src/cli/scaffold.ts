@@ -1,5 +1,6 @@
 import { addBiome } from "@/enhancements/biome";
 import { addGitIgnore } from "@/enhancements/git-ignore";
+import { addInter } from "@/enhancements/inter";
 import { addShadCN } from "@/enhancements/shadcn";
 import { starters } from "@/templates/starters";
 import type { PossibleEnhancements, ProjectConfig } from "@/types/project";
@@ -14,6 +15,7 @@ const possibleEnhancementMap: Record<
   shadcn: addShadCN,
   biome: addBiome,
   query: addBiome,
+  inter: addInter,
 };
 
 const enhancementMap = {
