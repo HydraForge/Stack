@@ -6,7 +6,8 @@ export const starters: Record<
   (config: ProjectConfig) => Promise<void>
 > = {
   start: async (config) => {
-    const startBasic = "TanStack/router/tree/main/examples/react/start-bare";
+    const startBasic =
+      "TanStack/router/tree/main/examples/react/start-tailwind-v4";
     try {
       await $`bunx gitpick ${startBasic} ${config.projectName}`.quiet();
     } catch (e) {
