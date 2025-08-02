@@ -1,0 +1,16 @@
+export const tailwindStyles = `@import "tailwindcss";
+body {
+  font-family:
+    Gordita, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+a {
+  margin-right: 1rem;
+}
+
+main {
+  text-align: center;
+  padding: 1em;
+  margin: 0 auto;
+}`;
