@@ -7,7 +7,7 @@
     "create-hydrastack-app": "./dist/index.js"
   },
   "scripts": {
-    "build": "bun build ./src/cli/index.ts --target=bun --outdir=dist",
+    "build": "bun build ./src/cli/index.ts --target=bun --outdir=dist && cp -r src/templates dist/",
     "lint": "bunx biome format --write ./src/*",
     "format": "bunx biome lint --write ./src/*",
     "check": "bunx biome check --write ./src/*",

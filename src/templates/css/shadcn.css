@@ -1,4 +1,4 @@
-export const stylesTemplate = `@import "tailwindcss";
+@import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
@@ -121,4 +121,3 @@ export const stylesTemplate = `@import "tailwindcss";
         @apply bg-background text-foreground;
     }
 }
-`;

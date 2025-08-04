@@ -1,6 +1,5 @@
 import { join } from "node:path";
 import { components } from "@/templates/shadcn/components";
-import { stylesTemplate } from "@/templates/shadcn/styles";
 import { utilsTemplate } from "@/templates/shadcn/utils";
 import type { ProjectConfig } from "@/types/project";
 import * as p from "@clack/prompts";
@@ -33,13 +32,6 @@ export const addShadCN = async (config: ProjectConfig): Promise<void> => {
 					componentsPath,
 					`${JSON.stringify(components, null, 2)}\n`,
 				);
-			},
-		},
-		{
-			title: "Copying ShadCN styles",
-			task: async () => {
-				const cssPath = join(config.projectName, "src/styles/app.css");
-				await Bun.write(cssPath, stylesTemplate);
 			},
 		},
 	]);

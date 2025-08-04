@@ -1,5 +1,4 @@
 import { join } from "node:path";
-import { tailwindStyles } from "@/templates/tailwind/styles";
 import { viteConfig } from "@/templates/tailwind/vite.config";
 import type { ProjectConfig } from "@/types/project";
 import * as p from "@clack/prompts";
@@ -21,13 +20,6 @@ export const addTailwind = async (config: ProjectConfig): Promise<void> => {
 			task: async () => {
 				const viteConfigPath = join(config.projectName, "vite.config.ts");
 				await Bun.write(viteConfigPath, viteConfig);
-			},
-		},
-		{
-			title: "Copying Styles",
-			task: async () => {
-				const stylePath = join(config.projectName, "src", "styles", "app.css");
-				await Bun.write(stylePath, tailwindStyles);
 			},
 		},
 	]);
