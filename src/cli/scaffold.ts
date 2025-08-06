@@ -1,7 +1,6 @@
 import { addBiome } from "@/enhancements/biome";
 import { applyCSSTemplate } from "@/enhancements/css-templates";
 import { addGitIgnore } from "@/enhancements/git-ignore";
-import { addInter } from "@/enhancements/inter";
 import { addShadCN } from "@/enhancements/shadcn";
 import { addTailwind } from "@/enhancements/tailwind";
 import { starters } from "@/templates/starters";
@@ -18,7 +17,7 @@ const possibleEnhancementMap: Record<
   shadcn: addShadCN,
   biome: addBiome,
   query: addBiome,
-  inter: addInter,
+  inter: async () => {},
 };
 
 const enhancementMap = {
