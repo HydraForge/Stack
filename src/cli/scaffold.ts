@@ -1,6 +1,7 @@
 import { addBiome } from "@/enhancements/biome";
 import { applyCSSTemplate } from "@/enhancements/css-templates";
 import { addGitIgnore } from "@/enhancements/git-ignore";
+import { addPackageJSON } from "@/enhancements/package-json";
 import { addReadMe } from "@/enhancements/readme";
 import { addShadCN } from "@/enhancements/shadcn";
 import { addTailwind } from "@/enhancements/tailwind";
@@ -24,6 +25,7 @@ const possibleEnhancementMap: Record<
 const enhancementMap = {
   git: addGitIgnore,
   readme: addReadMe,
+  packageJSON: addPackageJSON,
 };
 
 export const scaffold = async (config: ProjectConfig): Promise<void> => {
