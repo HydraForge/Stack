@@ -8,7 +8,6 @@ export const selectCSSTemplate = (
   const hasShadcn = tools.includes("shadcn");
   const hasInter = tools.includes("inter");
 
-  // No CSS-affecting tools selected
   if (!hasTailwind && !hasShadcn && !hasInter) {
     return null;
   }
@@ -19,7 +18,6 @@ export const selectCSSTemplate = (
   if (hasTailwind) return "tailwind.css";
   if (hasInter) return "inter.css";
 
-  // Fallback but shouldn't ever be reached
   return null;
 };
 
@@ -28,7 +26,6 @@ export const applyCSSTemplate = async (
 ): Promise<void> => {
   const template = selectCSSTemplate(config.tools ?? []);
 
-  // eep original TanStack CSS
   if (!template) {
     return;
   }
