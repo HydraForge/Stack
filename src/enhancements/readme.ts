@@ -1,15 +1,15 @@
+import { join } from "node:path";
 import type { ProjectConfig } from "@/types/project";
 import { $ } from "bun";
 import dedent from "dedent";
-import { join } from "node:path";
 
 export const addReadMe = async (config: ProjectConfig): Promise<void> => {
-  const readMePath = join(config.projectName, "README.md");
+	const readMePath = join(config.projectName, "README.md");
 
-  const readMe = dedent(`
+	const readMe = dedent(`
     # ${config.projectName}
 
-    This project was bootstrapped using **[HydraStack CLI](https://github.com/HydraForge/Stack)**.
+    This project was bootstrapped using **[HydraStack CLI](https://github.com/lucent-hq/Stack)**.
 
     ## 🛠️ Features
 
@@ -37,7 +37,7 @@ export const addReadMe = async (config: ProjectConfig): Promise<void> => {
     ---
     > Generated with ❤️ by [HydraStack CLI](https://github.com/HydraForge/Stack)
   `);
-  await $`touch ${readMePath}`;
+	await $`touch ${readMePath}`;
 
-  await Bun.write(readMePath, readMe);
+	await Bun.write(readMePath, readMe);
 };
